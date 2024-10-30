@@ -1,1 +1,26 @@
+<h1>Криптовалюта "NanoCoin"</h1>
+<p>Эмиссия: 100 монет</p>
+<p id="balance">Ваш баланс: 0 монет</p>
+<button onclick="getBalance()">Проверить баланс</button>
+<button onclick="sendCoins()">Отправить монеты</button>
 
+<script>
+    let totalCoins = 100;
+    let userBalance = 0;
+
+    function getBalance() {
+        alert(`Ваш баланс: ${userBalance} монет`);
+    }
+
+    function sendCoins() {
+        let amount = prompt("Сколько монет вы хотите отправить?");
+        amount = parseInt(amount);
+        if (amount > 0 && amount <= totalCoins) {
+            userBalance -= amount;
+            totalCoins -= amount;
+            alert(`Вы отправили ${amount} монет. Ваш новый баланс: ${userBalance} монет`);
+        } else {
+            alert("Неверное количество монет!");
+        }
+    }
+</script>
